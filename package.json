@@ -1,7 +1,7 @@
 {
-    "title": "Resume",
-    "name": "startbootstrap-resume",
-    "version": "7.0.6",
+    "title": "Resume with Bootstrap 5",
+    "name": "anatoliis.github.io",
+    "version": "1.0.0",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
         "build:assets": "node scripts/build-assets.js",
@@ -12,29 +12,24 @@
         "start": "npm run build && node scripts/start.js",
         "start:debug": "npm run build && node scripts/start-debug.js"
     },
-    "description": "Resume is a simple, yet elegant resume and CV theme for Bootstrap 4.",
+    "description": "My Resume with Bootstrap 5 and startbootstrap-resume",
     "keywords": [
         "css",
         "sass",
         "html",
-        "responsive",
-        "theme",
-        "template"
+        "responsive"
     ],
-    "homepage": "https://startbootstrap.com/theme/resume",
+    "homepage": "https://github.com/AnatoliiS/anatoliis.github.io",
     "bugs": {
-        "url": "https://github.com/StartBootstrap/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+        "url": "https://github.com/AnatoliiS/anatoliis.github.io/issues",
+        "email": "sobolev.anatoly@gmail.com"
+      },
     "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (https://davidmiller.io/)"
-    ],
+    "author": "Anatolii S.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/StartBootstrap/startbootstrap-resume.git"
-    },
+        "url": "git+https://github.com/AnatoliiS/anatoliis.github.io.git"
+      },
     "dependencies": {
         "bootstrap": "5.2.3"
     },
