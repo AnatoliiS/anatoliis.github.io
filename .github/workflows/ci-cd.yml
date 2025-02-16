@@ -1,12 +1,12 @@
 name: CI/CD
 
 on:
-    push:
-      branches:
-        - release
-    pull_request:
-      branches:
-        - release
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/release'
+      if: github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
