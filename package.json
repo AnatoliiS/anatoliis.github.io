@@ -1,23 +1,17 @@
 {
-    "title": "Resume with Bootstrap 5",
+    "title": "Resume",
     "name": "anatoliis.github.io",
     "version": "1.0.0",
-    "scripts": {
-        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
-        "build:assets": "node scripts/build-assets.js",
-        "build:pug": "node scripts/build-pug.js",
-        "build:scripts": "node scripts/build-scripts.js",
-        "build:scss": "node scripts/build-scss.js",
-        "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
-    },
     "description": "My Resume with Bootstrap 5 and startbootstrap-resume",
     "keywords": [
         "css",
         "sass",
         "html",
-        "responsive"
+        "responsive",
+        "grunt",
+        "bootstrap",
+        "resume",
+        "startbootstrap"
     ],
     "homepage": "https://github.com/AnatoliiS/anatoliis.github.io",
     "bugs": {
@@ -34,16 +28,18 @@
         "bootstrap": "5.2.3"
     },
     "devDependencies": {
-        "autoprefixer": "10.4.14",
-        "browser-sync": "^3.0.3",
-        "chokidar": "3.5.3",
-        "concurrently": "6.3.0",
-        "postcss": "^8.5.2",
-        "prettier": "2.8.6",
-        "pug": "^3.0.3",
-        "sass": "1.60.0",
-        "shelljs": "0.8.5",
-        "uglify-js": "^3.19.3",
-        "upath": "2.0.1"
+        "grunt": "^1.6.1",
+        "grunt-browser-sync": "^2.2.0",
+        "grunt-contrib-clean": "^2.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-cssmin": "^5.0.0",
+        "grunt-contrib-htmlmin": "^3.1.0",
+        "grunt-contrib-imagemin": "^4.0.0",
+        "grunt-contrib-pug": "^3.0.0",
+        "grunt-contrib-uglify": "^5.2.2",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-cwebp": "^3.0.3",
+        "grunt-sass": "^4.0.0",
+        "sass": "1.60.0"
     }
 }
