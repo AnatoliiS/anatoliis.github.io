@@ -8,7 +8,7 @@ const sass = require('sass');
 const sh = require('shelljs');
 
 const stylesPath = '../src/scss/styles.scss';
-const destPath = upath.resolve(upath.dirname(__filename), '../dist/css/styles.css');
+const destPath = upath.resolve(upath.dirname(__filename), '../dist/css/styles.min.css');
 
 module.exports = function renderSCSS() {
     
@@ -17,6 +17,7 @@ module.exports = function renderSCSS() {
         includePaths: [
             upath.resolve(upath.dirname(__filename), '../node_modules')
         ],
+        outputStyle: 'compressed',
       });
 
     const destPathDirname = upath.dirname(destPath);
