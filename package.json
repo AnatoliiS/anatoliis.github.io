@@ -23,13 +23,13 @@
     "bugs": {
         "url": "https://github.com/AnatoliiS/anatoliis.github.io/issues",
         "email": "sobolev.anatoly@gmail.com"
-      },
+    },
     "license": "MIT",
     "author": "Anatolii S.",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/AnatoliiS/anatoliis.github.io.git"
-      },
+    },
     "dependencies": {
         "bootstrap": "5.2.3"
     },
@@ -43,6 +43,7 @@
         "pug": "^3.0.3",
         "sass": "1.60.0",
         "shelljs": "0.8.5",
+        "uglify-js": "^3.19.3",
         "upath": "2.0.1"
     }
 }
