@@ -1,3 +1,8 @@
+/*!
+* Resume with Bootstrap 5 v1.0.0 (https://github.com/AnatoliiS/anatoliis.github.io)
+* Copyright 2013-2025 Anatolii S.
+* Licensed under MIT (https://github.com/AnatoliiS/anatoliis.github.io/blob/master/LICENSE)
+*/
 //
 // Scripts
 // 
