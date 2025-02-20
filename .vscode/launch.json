@@ -5,17 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "type": "vscode-edge-devtools.debug",
+            "request": "launch",
+            "name": "Launch Microsoft Edge and open the Edge DevTools",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "command": "grunt serve",
+            "name": "Run Grunt serve",
             "request": "launch",
             "type": "node-terminal"
         },
-        {
-            "type": "node-terminal",
-            "name": "Run Script: start:debug",
-            "request": "launch",
-            "command": "npm run start:debug",
-            "cwd": "${workspaceFolder}"
-        }
+
     ]
 }
