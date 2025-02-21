@@ -25,7 +25,8 @@
         "url": "git+https://github.com/AnatoliiS/anatoliis.github.io.git"
     },
     "dependencies": {
-        "bootstrap": "5.2.3"
+        "bootstrap": "5.2.3",
+        "puppeteer": "^24.2.1"
     },
     "devDependencies": {
         "grunt": "^1.6.1",
@@ -38,8 +39,12 @@
         "grunt-contrib-pug": "^3.0.0",
         "grunt-contrib-uglify": "^5.2.2",
         "grunt-contrib-watch": "^1.1.0",
+        "grunt-critical": "^3.0.1",
         "grunt-cwebp": "^3.0.3",
+        "grunt-purgecss": "^7.0.2",
         "grunt-sass": "^4.0.0",
+        "grunt-text-replace": "^0.4.0",
+        "puppeteer-core": "^24.2.1",
         "sass": "1.60.0"
     }
 }
