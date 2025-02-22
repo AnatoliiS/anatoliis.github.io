@@ -68,7 +68,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'dist/css',
-          src: ['styles.purged.css', '!*.min.css'],
+          src: ['*.css', '!*.min.css'],
           dest: 'dist/css',
           ext: '.min.css',
         }],
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'dist/css',
-          src: ['*.css', '!*.min.css'],
+          src: ['styles.css'],
           dest: 'dist/css',
           ext: '.purged.css'
         }]
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           base: 'dist/',
-          css: ['dist/css/styles.min.css*'],
+          css: ['dist/css/styles.min.css'],
           width: 1300,
           height: 900,
           inline: true, // Inline the critical CSS
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
           }
         },
         src: 'dist/index.html',
-        dest: 'dist/index.html' // Inline critical CSS into the original HTML file
+        dest: 'src/assets/css/critical.css'
       }
     },
 
