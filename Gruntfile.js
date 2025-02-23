@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: 'src/assets/',
-        src: ['**', '!img/**'], // Exclude the img folder
+        src: ['**', '!img/**', '!css/**'],
         dest: 'dist/',
       },
     },
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
     sass: {
       options: {
         implementation: require('sass'),
-        sourceMap: true
+        sourceMap: false,
       },
       dist: {
         files: [{
@@ -65,30 +65,18 @@ module.exports = function(grunt) {
     // Minify CSS
     cssmin: {
       target: {
-        files: [{
-          expand: true,
-          cwd: 'dist/css',
-          src: ['*.css', '!*.min.css'],
-          dest: 'dist/css',
-          ext: '.min.css',
-        }],
-      },
-    },
-
-    // Purge unused CSS
-    purgecss: {
-      options: {
-        content: ['dist/**/*.html', 'dist/js/**/*.js']
-      },
-      dist: {
+        options: {
+          sourceMap: true,
+          report: 'gzip',
+        },
         files: [{
           expand: true,
           cwd: 'dist/css',
           src: ['styles.css'],
           dest: 'dist/css',
-          ext: '.purged.css'
-        }]
-      }
+          ext: '.min.css',
+        }],
+      },
     },
     
     // Compile Pug to HTML
@@ -124,20 +112,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Replace version query parameter in HTML
-    replace: {
-      dist: {
-        src: ['dist/*.html'], // Source files array
-        dest: 'dist/', // Destination directory
-        replacements: [
-          {
-            from: /(\.css)\?v=\d+\.\d+\.\d+/g, // Regex replacement
-            to: '$1'
-          }
-        ]
-      }
-    },
-
     // Generate critical CSS
     critical: {
       dist: {
@@ -146,8 +120,9 @@ module.exports = function(grunt) {
           css: ['dist/css/styles.min.css'],
           width: 1300,
           height: 900,
-          inline: true, // Inline the critical CSS
-          extract: true, // Extract the critical CSS
+          inline: false,
+          extract: true,
+          strict: true,
           ignore: ['@font-face', /url\(/], // Ignore @font-face and url()
           penthouse: {
             puppeteer: {
@@ -169,7 +144,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['src/scss/**/*.scss'],
-        tasks: ['sass', 'purgecss', 'cssmin'],
+        tasks: ['sass', 'cssmin'],
       },
       images: {
         files: ['src/assets/img/**/*.{png,jpg,gif}'],
@@ -229,13 +204,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-critical');
-  grunt.loadNpmTasks('grunt-text-replace');
-  grunt.loadNpmTasks('grunt-purgecss');
 
   // Default task(s)
-  grunt.registerTask('prod', ['clean', 'copy', 'imagemin', 'cwebp', 'sass', 'purgecss', 'cssmin', 'pug', 'htmlmin', 'uglify']);
-  grunt.registerTask('dev', ['clean', 'copy', 'imagemin', 'cwebp', 'sass', 'purgecss', 'cssmin', 'pug']);
+  grunt.registerTask('prod', ['clean', 'copy', 'imagemin', 'cwebp', 'sass', 'cssmin', 'pug', 'htmlmin', 'uglify']);
+  grunt.registerTask('dev', ['clean', 'copy', 'imagemin', 'cwebp', 'sass', 'cssmin', 'pug', 'critcss']);
   grunt.registerTask('serve', ['browserSync', 'watch']);
-  grunt.registerTask('critcss', ['replace', 'purgecss', 'cssmin', 'critical']);
+  grunt.registerTask('critcss', ['critical', 'pug']);
   grunt.registerTask('flush', ['clean']);
 };
